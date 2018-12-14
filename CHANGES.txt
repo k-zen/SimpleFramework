@@ -1,0 +1,9 @@
+=================== Release 0.2 XXXX-XX-XX =====================
+Changes
+    * Added new support for task management through the TasksHandler and the Task classes. (06/01/15)
+    * Added new methods in the Fonts class, mainly for configuring the size of the font. (06/01/15)
+
+=================== Release 0.1 2014-12-26 =====================
+Description
+    * This version 0.1 contains only support for the MVC design pattern.
+    * It also contains support for fonts.
