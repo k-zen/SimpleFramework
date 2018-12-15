@@ -23,9 +23,9 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package net.apkc.cmvc.mvc;
+package net.apkc.sf.mvc;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 /**
  * Skeleton class for all frames.
@@ -33,8 +33,7 @@ import javax.swing.JFrame;
  * @author Andreas P. Koenzen <akc at apkc.net>
  * @version 0.1
  */
-public abstract class AbstractFrame extends JFrame
-{
+public abstract class AbstractFrame extends JFrame {
 
     /**
      * Override this method to include code that builds this frame.

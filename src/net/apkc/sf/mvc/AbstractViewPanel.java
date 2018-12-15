@@ -23,10 +23,10 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package net.apkc.cmvc.mvc;
+package net.apkc.sf.mvc;
 
+import javax.swing.*;
 import java.beans.PropertyChangeEvent;
-import javax.swing.JPanel;
 
 /**
  * Skeleton class for all panel views.
@@ -34,8 +34,7 @@ import javax.swing.JPanel;
  * @author Andreas P. Koenzen <akc at apkc.net>
  * @version 0.1
  */
-public abstract class AbstractViewPanel extends JPanel
-{
+public abstract class AbstractViewPanel extends JPanel {
 
     /**
      * Builds the component.
@@ -55,7 +54,6 @@ public abstract class AbstractViewPanel extends JPanel
      * Configure this Component.
      *
      * @param data Generic object with data.
-     *
      * @return This panel.
      */
     public abstract AbstractViewPanel configure(Object data);
@@ -64,11 +62,9 @@ public abstract class AbstractViewPanel extends JPanel
      * Makes the GUI visible.
      *
      * @param visible TRUE if the component should be visible, FALSE otherwise.
-     *
      * @return This panel.
      */
-    public final AbstractViewPanel markVisibility(boolean visible)
-    {
+    public final AbstractViewPanel markVisibility(boolean visible) {
         setVisible(visible);
 
         return this;

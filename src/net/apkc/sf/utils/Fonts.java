@@ -23,13 +23,13 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package net.apkc.cmvc.utils;
+package net.apkc.sf.utils;
 
-import java.awt.Font;
-import java.awt.FontFormatException;
+import org.apache.log4j.Logger;
+
+import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
-import org.apache.log4j.Logger;
 
 /**
  * Class to manage fonts inside the framework.

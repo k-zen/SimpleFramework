@@ -23,9 +23,9 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package net.apkc.cmvc.tasks;
+package net.apkc.sf.tasks;
 
-import javax.swing.SwingWorker;
+import javax.swing.*;
 
 /**
  * This class is just a wrapper for the SwingWorker class.

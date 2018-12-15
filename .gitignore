@@ -1,5 +1,4 @@
-# Compiled source #
-###################
+# Compiled source
 *.com
 *.class
 *.dll
@@ -39,3 +38,4 @@ tmtagsHistory
 *.sublime-project
 *.sublime-workspace
 .bundle
+*.iml

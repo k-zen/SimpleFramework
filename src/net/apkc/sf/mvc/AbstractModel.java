@@ -23,7 +23,7 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package net.apkc.cmvc.mvc;
+package net.apkc.sf.mvc;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -34,13 +34,11 @@ import java.beans.PropertyChangeSupport;
  * @author Andreas P. Koenzen <akc at apkc.net>
  * @version 0.1
  */
-public abstract class AbstractModel
-{
+public abstract class AbstractModel {
 
     protected PropertyChangeSupport propertyChangeSupport;
 
-    public AbstractModel()
-    {
+    public AbstractModel() {
         propertyChangeSupport = new PropertyChangeSupport(this);
     }
 
@@ -49,8 +47,7 @@ public abstract class AbstractModel
      *
      * @param l The property change listener object to add.
      */
-    public void addPropertyChangeListener(PropertyChangeListener l)
-    {
+    public void addPropertyChangeListener(PropertyChangeListener l) {
         propertyChangeSupport.addPropertyChangeListener(l);
     }
 
@@ -59,8 +56,7 @@ public abstract class AbstractModel
      *
      * @param l The property change listener object to remove.
      */
-    public void removePropertyChangeListener(PropertyChangeListener l)
-    {
+    public void removePropertyChangeListener(PropertyChangeListener l) {
         propertyChangeSupport.removePropertyChangeListener(l);
     }
 
@@ -71,8 +67,7 @@ public abstract class AbstractModel
      * @param oldValue     The old value.
      * @param newValue     The new value.
      */
-    protected void firePropertyChange(String propertyName, Object oldValue, Object newValue)
-    {
+    protected void firePropertyChange(String propertyName, Object oldValue, Object newValue) {
         propertyChangeSupport.firePropertyChange(propertyName, oldValue, newValue);
     }
 }

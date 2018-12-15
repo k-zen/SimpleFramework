@@ -23,7 +23,9 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package net.apkc.cmvc.mvc;
+package net.apkc.sf.mvc;
+
+import org.apache.log4j.Logger;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -31,7 +33,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.log4j.Logger;
 
 /**
  * Skeleton class for all controllers.
@@ -39,15 +40,13 @@ import org.apache.log4j.Logger;
  * @author Andreas P. Koenzen <akc at apkc.net>
  * @version 0.1
  */
-public abstract class AbstractController implements PropertyChangeListener
-{
+public abstract class AbstractController implements PropertyChangeListener {
 
     private static final Logger LOG = Logger.getLogger(AbstractController.class);
     private List<AbstractViewPanel> registeredViews;
     private List<AbstractModel> registeredModels;
 
-    public AbstractController()
-    {
+    public AbstractController() {
         registeredViews = new ArrayList<>();
         registeredModels = new ArrayList<>();
     }
@@ -57,8 +56,7 @@ public abstract class AbstractController implements PropertyChangeListener
      *
      * @param model A model object.
      */
-    public void addModel(AbstractModel model)
-    {
+    public void addModel(AbstractModel model) {
         registeredModels.add(model);
         model.addPropertyChangeListener(this);
     }
@@ -68,8 +66,7 @@ public abstract class AbstractController implements PropertyChangeListener
      *
      * @param model A model object to remove.
      */
-    public void removeModel(AbstractModel model)
-    {
+    public void removeModel(AbstractModel model) {
         registeredModels.remove(model);
         model.removePropertyChangeListener(this);
     }
@@ -79,8 +76,7 @@ public abstract class AbstractController implements PropertyChangeListener
      *
      * @param view The view object.
      */
-    public void addView(AbstractViewPanel view)
-    {
+    public void addView(AbstractViewPanel view) {
         registeredViews.add(view);
     }
 
@@ -89,16 +85,13 @@ public abstract class AbstractController implements PropertyChangeListener
      *
      * @param view The view object to remove.
      */
-    public void removeView(AbstractViewPanel view)
-    {
+    public void removeView(AbstractViewPanel view) {
         registeredViews.remove(view);
     }
 
     @Override
-    public void propertyChange(PropertyChangeEvent evt)
-    {
-        for (AbstractViewPanel view : registeredViews)
-        {
+    public void propertyChange(PropertyChangeEvent evt) {
+        for (AbstractViewPanel view : registeredViews) {
             view.modelPropertyChange(evt);
         }
     }
@@ -110,24 +103,19 @@ public abstract class AbstractController implements PropertyChangeListener
      * @param propertyName The name of the property to change.
      * @param newValue     The new value.
      */
-    protected void setModelProperty(String propertyName, Object newValue)
-    {
+    protected void setModelProperty(String propertyName, Object newValue) {
         for (Object model : registeredModels) // Iterate all models.
         {
-            try
-            {
+            try {
                 // Invoke the method and update the property if available.
                 Method method = model
                         .getClass()
                         .getMethod("set" + propertyName,
-                                   new Class[]
-                                   {
-                                       newValue.getClass()
-                                   });
+                                new Class[]{
+                                        newValue.getClass()
+                                });
                 method.invoke(model, newValue);
-            }
-            catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e)
-            {
+            } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
                 LOG.warn("Property not found in model: " + model.getClass().getName(), e);
             }
         }

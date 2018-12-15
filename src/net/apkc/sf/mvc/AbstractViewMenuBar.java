@@ -23,10 +23,10 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package net.apkc.cmvc.mvc;
+package net.apkc.sf.mvc;
 
+import javax.swing.*;
 import java.beans.PropertyChangeEvent;
-import javax.swing.JMenuBar;
 
 /**
  * Skeleton class for all menu bar views.
@@ -34,8 +34,7 @@ import javax.swing.JMenuBar;
  * @author Andreas P. Koenzen <akc at apkc.net>
  * @version 0.1
  */
-public abstract class AbstractViewMenuBar extends JMenuBar
-{
+public abstract class AbstractViewMenuBar extends JMenuBar {
 
     /**
      * Called from the controller to receive a change notification.
